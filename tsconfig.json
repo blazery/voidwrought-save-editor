@@ -17,8 +17,8 @@
     "noEmit": true
   },
   "include": [
-    "src",
-    "shared"
+    // "src",
+    // "shared"
   ],
   "references": [
     {
