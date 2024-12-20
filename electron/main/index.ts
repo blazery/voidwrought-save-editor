@@ -1,6 +1,7 @@
 import { app, BrowserWindow, shell, ipcMain } from 'electron'
 import { createRequire } from 'node:module'
 import { fileURLToPath } from 'node:url'
+import FileManipulator from './FileManipulator'
 import path from 'node:path'
 import os from 'node:os'
 
@@ -118,3 +119,11 @@ ipcMain.handle('open-win', (_, arg) => {
     childWindow.loadFile(indexHtml, { hash: arg })
   }
 })
+
+
+var IPCControllers = [FileManipulator].forEach(controller => {
+  controller.handlers.forEach(handler => {
+      console.log(handler)
+      ipcMain.handle(handler.chanel, handler.function)
+  });
+});
