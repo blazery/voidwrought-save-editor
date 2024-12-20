@@ -1,8 +1,8 @@
-export interface IPCControllerInterface  {
-    handlers: [
-        {
-          chanel: string,
-          function: (chanel: string, ...args) => {}
-        }
-      ]
+export default interface IPCControllerInterface {
+  handlers: Array<
+    {
+      chanel: string,
+      function: (...args) => any
+    }
+  >
 }
